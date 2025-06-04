@@ -8,6 +8,6 @@ def read_root():
 
 @app.get("/jobs")
 def get_jobs():
-    return [{"name": "Make Ready Tool NESC Demo", "status": "active"}]
+    return [{"name": "Make Ready Tool NESC Demo, editing to make sure start up is not too bad", "status": "active"}]
 
 print()
