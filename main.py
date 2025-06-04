@@ -9,3 +9,5 @@ def read_root():
 @app.get("/jobs")
 def get_jobs():
     return [{"name": "Make Ready Tool NESC Demo", "status": "active"}]
+
+print()
