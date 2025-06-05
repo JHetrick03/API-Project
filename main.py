@@ -38,6 +38,6 @@ async def proxy_katapult(request: Request):
     }
 
     async with httpx.AsyncClient() as client:
-        await client.patch(new_request_url, json=request_body, headers=headersS)
+        await client.post(new_request_url, json=request_body, headers=headersS)
 
     return Response(content="Done!", headers=headersS)
