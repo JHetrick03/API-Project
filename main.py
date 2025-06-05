@@ -46,4 +46,4 @@ async def proxy_katapult(request: Request):
         "api_key": api_key
     }
 
-    return Response(content=contentJson, headers={"Access-Control-Allow-Origin": "https://dcs.katapultpro.com"})
+    return Response(content=JSON.stringify(contentJson), headers={"Access-Control-Allow-Origin": "https://dcs.katapultpro.com"})
