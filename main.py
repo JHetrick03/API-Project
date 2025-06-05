@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Response
-import httpx
+import requests
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 @app.post("/api/v3/jobs")
-async def proxy_katapult(request: Request):
+def proxy_katapult(request: Request):
     # Extract query parameters
     query_params = dict(request.query_params)
     job_id = query_params.get("job_id")
@@ -37,7 +37,10 @@ async def proxy_katapult(request: Request):
         "Access-Control-Allow-Origin": "https://dcs.katapultpro.com"
     }
 
-    async with httpx.AsyncClient() as client:
-        await client.post(new_request_url, json=request_body, headers=headersS)
+    katapult_response = requests.post(new_request_url, json=request_body, headers=headerS)
 
-    return Response(content="Done!", headers=headersS)
+    return Response(
+        content=katapult_response.text,
+        status_code=katapult_response.status_code,
+        headers=headersS
+    )
