@@ -34,7 +34,8 @@ async def proxy_katapult(request: Request):
 
     headersS = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "https://dcs.katapultpro.com"
+        "Access-Control-Allow-Origin": "https://dcs.katapultpro.com",
+        "Allow": "PATCH"
     }
 
     async with httpx.AsyncClient() as client:
