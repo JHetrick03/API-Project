@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.patch("/api/v3/jobs")
+@app.post("/api/v3/jobs")
 async def proxy_katapult(request: Request):
     # Extract query parameters
     query_params = dict(request.query_params)
