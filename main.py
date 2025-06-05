@@ -37,7 +37,7 @@ def proxy_katapult(request: Request):
         "Access-Control-Allow-Origin": "https://dcs.katapultpro.com"
     }
 
-    katapult_response = requests.post(new_request_url, json=request_body, headers=headerS)
+    katapult_response = requests.post(new_request_url, json=request_body, headers=headersS)
 
     return Response(
         content=katapult_response.text,
