@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/api/v3/jobs")
+@app.patch("/api/v3/jobs")
 async def proxy_katapult(request: Request):
     # Extract query parameters
     query_params = dict(request.query_params)
@@ -34,8 +34,7 @@ async def proxy_katapult(request: Request):
 
     headersS = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "https://dcs.katapultpro.com",
-        "Allow": "PATCH"
+        "Access-Control-Allow-Origin": "https://dcs.katapultpro.com"
     }
 
     async with httpx.AsyncClient() as client:
