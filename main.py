@@ -28,7 +28,7 @@ async def proxy_katapult(request: Request):
 
     request_body = {
         "add_attributes": {
-            "note": "This is a note from my new awesome API tool!"
+            "note": "This is a note from my new awesome python API tool!"
         }
     }
 
