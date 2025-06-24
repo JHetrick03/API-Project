@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/api/v2/jobs")
+@app.post("/api/v3/jobs")
 def proxy_katapult(request: Request):
     # Extract query parameters
     query_params = dict(request.query_params)
@@ -24,7 +24,7 @@ def proxy_katapult(request: Request):
         return Response(content="Missing parameters", status_code=400)
 
     # Construct the request to Katapult Pro API
-    new_request_url = f"https://dcs.katapultpro.com/api/v2/jobs/{job_id}/nodes/{node_id}?api_key={api_key}"
+    new_request_url = f"https://dcs.katapultpro.com/api/v3/jobs/{job_id}/nodes/{node_id}?api_key={api_key}"
 
     request_body = {
         "add_attributes": {
